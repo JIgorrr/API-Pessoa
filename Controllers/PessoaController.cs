@@ -89,12 +89,12 @@ namespace ListDePessoas.Controllers
 
                 PessoaDTO pessoa = await _pessoaRepository.CreatePessoa(person);
 
+                json = JsonSerializer.Serialize(pessoa);
+
                 return Ok(new
                 {
                     Message = "Pessoa criada com sucesso",
-                    Nome = pessoa.Nome,
-                    Idade = pessoa.Idade,
-                    DataNascimento = pessoa.DataNascimento
+                    Pessoa = json
                 });
             }
             catch (Exception ex)

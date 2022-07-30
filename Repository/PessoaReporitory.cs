@@ -25,6 +25,7 @@ namespace ListDePessoas.Repository
 
             Pessoa pessoa = new()
             {
+                Id = person.Id,
                 Nome = person.Nome,
                 Idade = person.Idade,
                 Sexo = person.Sexo,
@@ -36,6 +37,7 @@ namespace ListDePessoas.Repository
 
             return new PessoaDTO
             {
+                Id = pessoa.Id,
                 Nome = pessoa.Nome,
                 Idade = pessoa.Idade,
                 Sexo = pessoa.Sexo,
