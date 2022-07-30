@@ -8,14 +8,13 @@ namespace ListDePessoas.Transaction
         public static void ValidateYearsAndIdade(PessoaDTO pessoa)
         {
             DateTime dateNow = DateTime.Now;
-            TimeSpan validateYears = dateNow - Convert.ToDateTime(pessoa.DataNascimento);
             DateTime dateYers = Convert.ToDateTime(pessoa.DataNascimento);
 
-            int idade;
+            long idade = dateNow.Year - dateYers.Year - 1;
 
-            if (DateTime.Now.Month < dateYers.Month)
+            if (DateTime.Now.Month >= dateYers.Month)
             {
-                idade = (validateYears.Days / 365);
+                idade = dateNow.Year - dateYers.Year;
 
                 if (idade < 18)
                     throw new Exception("Menor de idade");
@@ -25,13 +24,11 @@ namespace ListDePessoas.Transaction
 
                 return;
             }
-            else
-                idade = (validateYears.Days / 365) + 1;
 
-            if(idade < 18)
+            if (idade < 18)
                 throw new Exception("Menor de idade");
 
-            else if(idade != pessoa.Idade)
+            else if (idade != pessoa.Idade)
                 throw new Exception("Idade informada diferente da sua idade atual!");
         }
     }
