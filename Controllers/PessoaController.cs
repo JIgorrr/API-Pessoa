@@ -30,7 +30,7 @@ namespace ListDePessoas.Controllers
                 List<PessoaDTO> pessoa = await _pessoaRepository.FindAllPessoa();
 
                 if (pessoa.Count == 0)
-                    return Ok(new
+                    return BadRequest(new
                     {
                         Message = "Nenhuma pessoa registrada."
                     });
