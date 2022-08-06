@@ -1,5 +1,5 @@
-﻿using ListDePessoas.Data.DTO;
-using ListDePessoas.Repository;
+﻿using APIPerson.Data.DTO;
+using APIPerson.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections;
@@ -7,29 +7,29 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace ListDePessoas.Controllers
+namespace APIPerson.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class PessoaController : ControllerBase
+    public class PersonController : ControllerBase
     {
 
-        private readonly IPessoaRepository _pessoaRepository;
+        private readonly IPersonRepository _pessoaRepository;
 
-        public PessoaController(IPessoaRepository pessoaRepository)
+        public PersonController(IPersonRepository pessoaRepository)
         {
             _pessoaRepository = pessoaRepository;
         }
 
-        [Route("/FindAllPessoas")]
+        [Route("/GetAllPerson")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable>> GetAllPessoas()
+        public async Task<ActionResult<IEnumerable>> GetAllPerson()
         {
             try
             {
-                List<PessoaDTO> pessoa = await _pessoaRepository.FindAllPessoa();
+                List<PersonDTO> person = await _pessoaRepository.FindAllPerson();
 
-                if (pessoa.Count == 0)
+                if (person.Count == 0)
                     return BadRequest(new
                     {
                         Message = "Nenhuma pessoa registrada."
@@ -37,7 +37,7 @@ namespace ListDePessoas.Controllers
 
                 return Ok(new
                 {
-                    Pessoa = pessoa
+                    Person = person
                 });
             }
             catch (Exception ex)
@@ -50,20 +50,20 @@ namespace ListDePessoas.Controllers
             }
         }
 
-        [Route("/GetPessoaById")]
+        [Route("/GetPersonById")]
         [HttpGet]
-        public async Task<ActionResult> GetById(long id)
+        public async Task<ActionResult> GetPersonById(long id)
         {
             try
             {
                 if (id == null)
                     return BadRequest();
 
-                var pessoa = await _pessoaRepository.FindPessoaById(id);
+                var person = await _pessoaRepository.FindPersonById(id);
 
                 return Ok(new
                 {
-                    Pessoa = pessoa
+                    Person = person
                 });
             }
             catch (Exception ex)
@@ -76,25 +76,25 @@ namespace ListDePessoas.Controllers
             }
         }
 
-        [Route("/CreatePessoa")]
+        [Route("/CreatePerson")]
         [HttpPost]
-        public async Task<ActionResult> CreatePessoa(PessoaDTO person)
+        public async Task<ActionResult> CreatePerson(PersonDTO personDTO)
         {
             string json;
 
             try
             {
-                if (person == null)
+                if (personDTO == null)
                     BadRequest("Pessoa não encontrada");
 
-                PessoaDTO pessoa = await _pessoaRepository.CreatePessoa(person);
+                PersonDTO person = await _pessoaRepository.CreatePerson(personDTO);
 
-                json = JsonSerializer.Serialize(pessoa);
+                json = JsonSerializer.Serialize(person);
 
                 return Ok(new
                 {
                     Message = "Pessoa criada com sucesso",
-                    Pessoa = json
+                    Person = json
                 });
             }
             catch (Exception ex)
@@ -107,24 +107,24 @@ namespace ListDePessoas.Controllers
             }
         }
 
-        [Route("/UpdatePessoa")]
+        [Route("/UpdatePerson")]
         [HttpPut]
-        public async Task<ActionResult> UpdatePessoa(PessoaDTO person)
+        public async Task<ActionResult> UpdatePerson(PersonDTO personDTO)
         {
             string json;
 
             try
             {
-                if (person == null)
+                if (personDTO == null)
                     return BadRequest("Pessoa não encontrada");
 
-                var pessoa = await _pessoaRepository.UpdatePessoa(person);
+                var person = await _pessoaRepository.UpdatePerson(personDTO);
 
-                json = JsonSerializer.Serialize(pessoa);
+                json = JsonSerializer.Serialize(person);
 
                 return Ok(new
                 {
-                    Pessoa = json
+                    Person = json
                 });
             }
             catch (Exception ex)
@@ -137,17 +137,17 @@ namespace ListDePessoas.Controllers
             }
         }
 
-        [Route("/DeletePessoaById")]
+        [Route("/DeletePerson")]
         [HttpDelete()]
-        public async Task<ActionResult> DeletePessoa(long id)
+        public async Task<ActionResult> DeletePerson(long id)
         {
             string json;
 
             try
             {
-                var pessoa = _pessoaRepository.DeletePessoa(id);
+                var person = _pessoaRepository.DeletePerson(id);
 
-                json = JsonSerializer.Serialize(pessoa);
+                json = JsonSerializer.Serialize(person);
 
                 return Ok(new
                 {
@@ -165,17 +165,17 @@ namespace ListDePessoas.Controllers
             }
         }
 
-        [Route("/DeleteAll")]
+        [Route("/DeleteAllPerson")]
         [HttpDelete]
-        public async Task<ActionResult> DeleteAllPessoa()
+        public async Task<ActionResult> DeleteAllPerson()
         {
             string json;
 
             try
             {
-                bool pessoaDeletada = await _pessoaRepository.DeleteAll();
+                bool personDelete = await _pessoaRepository.DeleteAll();
 
-                json = JsonSerializer.Serialize(pessoaDeletada);
+                json = JsonSerializer.Serialize(personDelete);
 
                 return Ok(new
                 {

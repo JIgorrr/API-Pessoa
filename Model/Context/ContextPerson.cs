@@ -2,13 +2,13 @@
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace ListDePessoas.Model.Context
+namespace APIPerson.Model.Context
 {
-    public class ContextPessoa : DbContext
+    public class ContextPerson : DbContext
     {
-        public DbSet<Pessoa> Perssoas { get; set; }
+        public DbSet<Person> Persons { get; set; }
 
-        public ContextPessoa(DbContextOptions<ContextPessoa> options) : base(options) { }
+        public ContextPerson(DbContextOptions<ContextPerson> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

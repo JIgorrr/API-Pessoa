@@ -1,0 +1,7 @@
+C:\Temp\ws-projetos\Projetos\ListaDePessoas\ListDePessoas\obj\Debug\net5.0\PersonAPI.csproj.AssemblyReference.cache
+C:\Temp\ws-projetos\Projetos\ListaDePessoas\ListDePessoas\obj\Debug\net5.0\PersonAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Temp\ws-projetos\Projetos\ListaDePessoas\ListDePessoas\obj\Debug\net5.0\PersonAPI.AssemblyInfoInputs.cache
+C:\Temp\ws-projetos\Projetos\ListaDePessoas\ListDePessoas\obj\Debug\net5.0\PersonAPI.AssemblyInfo.cs
+C:\Temp\ws-projetos\Projetos\ListaDePessoas\ListDePessoas\obj\Debug\net5.0\PersonAPI.csproj.CoreCompileInputs.cache
+C:\Temp\ws-projetos\Projetos\ListaDePessoas\ListDePessoas\obj\Debug\net5.0\PersonAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Temp\ws-projetos\Projetos\ListaDePessoas\ListDePessoas\obj\Debug\net5.0\PersonAPI.MvcApplicationPartsAssemblyInfo.cache

@@ -1,5 +1,5 @@
-using ListDePessoas.Model.Context;
-using ListDePessoas.Repository;
+using APIPerson.Model.Context;
+using APIPerson.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace ListDePessoas
+namespace APIPerson
 {
     public class Startup
     {
@@ -23,11 +23,11 @@ namespace ListDePessoas
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IPessoaRepository, PessoaReporitory>();
-            services.AddDbContext<ContextPessoa>(x => x.UseSqlServer(Configuration.GetConnectionString("ServerConnection")));
+            services.AddScoped<IPersonRepository, PersonReporitory>();
+            services.AddDbContext<ContextPerson>(x => x.UseSqlServer(Configuration.GetConnectionString("ServerConnection")));
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ListDePessoas", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PersonAPI", Version = "v1" });
             });
         }
 
@@ -38,7 +38,7 @@ namespace ListDePessoas
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ListDePessoas v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PersonAPI v1"));
             }
 
             app.UseHttpsRedirection();

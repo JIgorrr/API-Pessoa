@@ -5985,11 +5985,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Temp\\ws-projetos\\Projetos\\ListaDePessoas\\ListDePessoas\\ListDePessoas.csproj",
-      "projectName": "ListDePessoas",
-      "projectPath": "C:\\Temp\\ws-projetos\\Projetos\\ListaDePessoas\\ListDePessoas\\ListDePessoas.csproj",
+      "projectUniqueName": "C:\\Temp\\ws-projetos\\Projetos\\ListaDePessoas\\APIPerson\\APIPerson.csproj",
+      "projectName": "APIPerson",
+      "projectPath": "C:\\Temp\\ws-projetos\\Projetos\\ListaDePessoas\\APIPerson\\APIPerson.csproj",
       "packagesPath": "C:\\Users\\Usuario Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Temp\\ws-projetos\\Projetos\\ListaDePessoas\\ListDePessoas\\obj\\",
+      "outputPath": "C:\\Temp\\ws-projetos\\Projetos\\ListaDePessoas\\APIPerson\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

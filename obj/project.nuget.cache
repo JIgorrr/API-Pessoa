@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jf5Vl7cpUHGO8Iu+FIeLd5i7n4pI81LG0Qk4o03bOy4lkYebXCndZoFs4BRajKmc1d4aRbsFWFXnQDa7UnaULQ==",
+  "dgSpecHash": "HfTJUNZmk8MsDRekoLy2RdPgkOao+qvIHQDjsTru9Xdqqr6LUPHAlOSHN70dFFWKXxgQ8UBVqbhhIkfiv/+3iA==",
   "success": true,
-  "projectFilePath": "C:\\Temp\\ws-projetos\\Projetos\\ListaDePessoas\\ListDePessoas\\ListDePessoas.csproj",
+  "projectFilePath": "C:\\Temp\\ws-projetos\\Projetos\\ListaDePessoas\\APIPerson\\APIPerson.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario Lenovo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Usuario Lenovo\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

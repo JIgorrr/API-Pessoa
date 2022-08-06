@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ListDePessoas.Model.Base
+namespace APIPerson.Model.Base
 {
     public class BaseEntity
     {
