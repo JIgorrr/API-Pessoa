@@ -2,7 +2,7 @@
 
 namespace APIPerson.Model.Base
 {
-    public class BaseEntity
+    public  class BaseEntity
     {
         [Key]
         public long Id { get; set; }

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Repository;
 
 namespace APIPerson
 {
@@ -22,12 +23,14 @@ namespace APIPerson
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IDapperService, DapperService>();
+            services.AddScoped<ContextPerson>(); 
             services.AddControllers();
             services.AddScoped<IPersonRepository, PersonReporitory>();
             services.AddDbContext<ContextPerson>(x => x.UseSqlServer(Configuration.GetConnectionString("ServerConnection")));
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PersonAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIPerson", Version = "v1" });
             });
         }
 
@@ -38,7 +41,7 @@ namespace APIPerson
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PersonAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIPerson v1"));
             }
 
             app.UseHttpsRedirection();

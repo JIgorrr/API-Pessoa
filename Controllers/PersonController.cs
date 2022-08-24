@@ -1,9 +1,12 @@
 ﻿using APIPerson.Data.DTO;
 using APIPerson.Repository;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using Repository;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -16,9 +19,11 @@ namespace APIPerson.Controllers
 
         private readonly IPersonRepository _pessoaRepository;
 
-        public PersonController(IPersonRepository pessoaRepository)
+        private readonly IDapperService _dapperService;
+        public PersonController(IPersonRepository pessoaRepository, IDapperService dapperService)
         {
             _pessoaRepository = pessoaRepository;
+            _dapperService = dapperService;
         }
 
         [Route("/GetAllPerson")]
@@ -87,7 +92,14 @@ namespace APIPerson.Controllers
                 if (personDTO == null)
                     BadRequest("Pessoa não encontrada");
 
-                PersonDTO person = await _pessoaRepository.CreatePerson(personDTO);
+                var parms = new DynamicParameters();
+                parms.Add("PersonId", personDTO.Id);
+                parms.Add("PersonName", personDTO.Name, DbType.String);
+                parms.Add("PersonAge", personDTO.Age, DbType.Int64);
+                parms.Add("PersonGender", personDTO.Gender, DbType.String);
+                parms.Add("PersonBirthDate", personDTO.BirthDate, DbType.DateTime);
+
+                var person = Task.FromResult(_dapperService.Insert<ActionResult>("[dbo].[InsertPerson]", parms, commandType: CommandType.StoredProcedure));
 
                 json = JsonSerializer.Serialize(person);
 
@@ -118,7 +130,14 @@ namespace APIPerson.Controllers
                 if (personDTO == null)
                     return BadRequest("Pessoa não encontrada");
 
-                var person = await _pessoaRepository.UpdatePerson(personDTO);
+                var parms = new DynamicParameters();
+                parms.Add("PersonId", personDTO.Id);
+                parms.Add("PersonName", personDTO.Name, DbType.String);
+                parms.Add("PersonAge", personDTO.Age, DbType.Int64);
+                parms.Add("PersonGender", personDTO.Gender, DbType.String);
+                parms.Add("PersonBirthDate", personDTO.BirthDate, DbType.DateTime);
+
+                var person = Task.FromResult(_dapperService.Update<ActionResult>("[dbo].[UpdatePerson]", parms, commandType: CommandType.StoredProcedure));
 
                 json = JsonSerializer.Serialize(person);
 

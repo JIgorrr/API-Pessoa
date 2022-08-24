@@ -65,3 +65,4 @@ C:\Temp\ws-projetos\Projetos\ListaDePessoas\APIPerson\obj\Debug\net5.0\refint\AP
 C:\Temp\ws-projetos\Projetos\ListaDePessoas\APIPerson\obj\Debug\net5.0\APIPerson.pdb
 C:\Temp\ws-projetos\Projetos\ListaDePessoas\APIPerson\obj\Debug\net5.0\APIPerson.genruntimeconfig.cache
 C:\Temp\ws-projetos\Projetos\ListaDePessoas\APIPerson\obj\Debug\net5.0\ref\APIPerson.dll
+C:\Temp\ws-projetos\Projetos\ListaDePessoas\APIPerson\bin\Debug\net5.0\Dapper.dll

@@ -8,7 +8,7 @@ namespace APIPerson.Model.Context
     {
         public DbSet<Person> Persons { get; set; }
 
-        public ContextPerson(DbContextOptions<ContextPerson> options) : base(options) { }
+        public ContextPerson(DbContextOptions<ContextPerson> options) : base(options) {}
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

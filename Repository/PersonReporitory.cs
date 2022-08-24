@@ -112,10 +112,11 @@ namespace APIPerson.Repository
 
             return pessoaDTO;
         }
-
+        
         public async Task<PersonDTO> UpdatePerson(PersonDTO personDTO)
         {
-            var id = _context.Persons.Where(x => x.Id == personDTO.Id).FirstOrDefault();
+
+            var id = _context.Persons.Where(x => x.Id == personDTO.Id).FirstOrDefault(); 
 
             if (id == null)
                 throw new KeyNotFoundException("Id não existe na base de dados.");
@@ -134,6 +135,7 @@ namespace APIPerson.Repository
 
             PersonDTO personsDTO = new()
             {
+                Id = person.Id,
                 Name = person.Name,
                 Age = person.Age,
                 Gender = person.Gender,

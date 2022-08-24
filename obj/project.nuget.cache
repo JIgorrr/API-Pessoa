@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HfTJUNZmk8MsDRekoLy2RdPgkOao+qvIHQDjsTru9Xdqqr6LUPHAlOSHN70dFFWKXxgQ8UBVqbhhIkfiv/+3iA==",
+  "dgSpecHash": "ti9/PpHoXPN3OeRjFlZa4RNQn4riUhirmqogAZFd3LPGP3Gsu+UHNeRZuFskCmFHoq8Q6sl0aJpMEw8ZnqjQqQ==",
   "success": true,
   "projectFilePath": "C:\\Temp\\ws-projetos\\Projetos\\ListaDePessoas\\APIPerson\\APIPerson.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Usuario Lenovo\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Usuario Lenovo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Usuario Lenovo\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Usuario Lenovo\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
